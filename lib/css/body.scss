@@ -7,9 +7,24 @@
 }
 
 aside {
+  background-color: $light-gray-color;
   border: 1px solid black;
   position: absolute;
   right: 0;
   top: 0;
   width: 30%;
+}
+
+h1 {
+  color: $white-text;
+}
+
+input[type='text']::-webkit-input-placeholder {
+  color: $dark-blue-color;
+  background-color: $light-gray-color;
+}
+
+.UserLoggedIn {
+  background-color: $dark-gray-color;
+  color: $white-text;
 }

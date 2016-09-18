@@ -1,3 +1,21 @@
+footer {
+  background-color: $dark-blue-color;
+}
+
 .MessageInput {
   @include flexbox-center-row;
+}
+
+.SubmitButton {
+  background-color: $medium-green-color;
+  color: $white-text;
+}
+
+.ClearButton {
+  background-color: $medium-red-color;
+  color: $white-text;
+}
+
+.CharacterCounter {
+  color: $white-text;
 }
