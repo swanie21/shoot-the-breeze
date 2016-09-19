@@ -1,16 +1,20 @@
 .MessageDate {
   color: $purple-text;
+  font-size: 20px;
   margin: 0;
-  margin-top: 10px;
+  margin: 15px 0 0 20px;
 }
 
 .MessageContent {
   color: $dark-blue-color;
+  font-size: 20px;
   margin: 0;
+  margin-left: 20px;
 }
 
 .MessageUserName {
-  color: $light-blue-color;
+  color: #2980b9;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   margin-left: 10px;

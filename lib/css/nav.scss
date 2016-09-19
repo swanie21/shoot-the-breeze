@@ -8,4 +8,22 @@ nav {
   @include button;
   background-color: $light-blue-color;
   color: $white-text;
+  width: 100px;
+}
+
+.SortUpButton {
+  background: $up-arrow;
+  background-position: right;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.SortDownButton {
+  background: $down-arrow;
+  background-position: right;
+  display: inline-block;
+}
+
+.SortButtons {
+  @include button-container;
 }

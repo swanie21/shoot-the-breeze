@@ -2,9 +2,34 @@ aside {
   background-color: $light-gray-color;
   height: 100vh;
   position: absolute;
-  padding: 70px 15px 15px 15px;
+  padding: 90px 15px 15px 15px;
   right: 0;
   top: 0;
   width: 30%;
   z-index: -1;
+}
+
+h2 {
+  color: $dark-blue-color;
+  font-weight: bold;
+  margin: 0;
+}
+
+.UserListDisplay {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+.UserListEmail {
+  color: $dark-blue-color;
+  font-size: 20px;
+  padding: 0;
+  margin-left: 5px;
+}
+
+.UserListName {
+  color: $dark-blue-color;
+  font-size: 20px;
+  padding: 0;
 }
