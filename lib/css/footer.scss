@@ -25,6 +25,9 @@ footer {
   color: $white-text;
   margin-right: 20px;
   width: 100px;
+  &:disabled {
+    background-color: lighten($medium-green-color, 20%);
+  }
 }
 
 .ClearButton {
@@ -32,14 +35,35 @@ footer {
   background-color: $medium-red-color;
   color: $white-text;
   width: 100px;
+  &:disabled {
+    background-color: lighten($medium-red-color, 20%);
+  }
 }
 
 .CharacterCounter {
   color: $white-text;
   font-size: 20px;
   margin-left: 20px;
+  margin-right: 20px;
+  width: 20%;
 }
 
 .ButtonContainer {
   @include button-container;
+}
+
+.UserLoggedIn {
+  background-color: $dark-gray-color;
+  color: $white-text;
+  font-size: 20px;
+  padding: 10px 0;
+  text-indent: 10px;
+}
+
+.UserLoggedIn p {
+  margin: 0;
+}
+
+span {
+  font-weight: bold;
 }
