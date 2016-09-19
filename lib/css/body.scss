@@ -2,12 +2,18 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .Application {
   position: relative;
 }
 
 h1 {
   color: $white-text;
+  margin-left: 20px;
 }
 
 input[type='text']::-webkit-input-placeholder {
