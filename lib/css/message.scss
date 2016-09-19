@@ -1,0 +1,23 @@
+.MessageDate {
+  color: $purple-text;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.MessageContent {
+  color: $dark-blue-color;
+  margin: 0;
+}
+
+.MessageUserName {
+  color: $light-blue-color;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.Message {
+  @include flexbox-center-row;
+  width: 70%;
+}

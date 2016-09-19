@@ -1,21 +1,42 @@
 footer {
   background-color: $dark-blue-color;
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  width: 100%;
 }
 
 .MessageInput {
   @include flexbox-center-row;
 }
 
+.InputField {
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 8px 0;
+  width: 80%;
+}
+
 .SubmitButton {
+  @include button;
   background-color: $medium-green-color;
   color: $white-text;
 }
 
 .ClearButton {
+  @include button;
   background-color: $medium-red-color;
   color: $white-text;
 }
 
 .CharacterCounter {
   color: $white-text;
+}
+
+.ButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 10px 0 10px;
+  width: 100%;
 }

@@ -1,9 +1,11 @@
 nav {
   @include flexbox-center-row;
   background-color: $dark-blue-color;
+  width: 100%;
 }
 
-.SortButton {
+.SortUpButton, .SortDownButton {
+  @include button;
   background-color: $light-blue-color;
   color: $white-text;
 }
