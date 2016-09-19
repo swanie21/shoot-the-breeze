@@ -12,7 +12,16 @@ nav {
 }
 
 .SortUpButton {
+  background: $up-arrow;
+  background-position: right;
+  display: inline-block;
   margin-right: 20px;
+}
+
+.SortDownButton {
+  background: $down-arrow;
+  background-position: right;
+  display: inline-block;
 }
 
 .SortButtons {
