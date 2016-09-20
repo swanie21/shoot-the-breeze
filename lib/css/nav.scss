@@ -1,7 +1,7 @@
 nav {
   @include flexbox-center-row;
   background-color: $dark-blue-color;
-  position: fixed;
+  // position://// fixed;
   width: 100%;
 }
 
