@@ -7,6 +7,7 @@
 @mixin button {
   border: none;
   border-radius: 3px;
+  color: $white-text;
   font-size: 20px;
   outline: none;
   padding: 6px 0;

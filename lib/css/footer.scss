@@ -22,7 +22,6 @@ footer {
 .SubmitButton {
   @include button;
   background-color: $medium-green-color;
-  color: $white-text;
   margin-right: 20px;
   width: 100px;
   &:disabled {
@@ -33,7 +32,6 @@ footer {
 .ClearButton {
   @include button;
   background-color: $medium-red-color;
-  color: $white-text;
   width: 100px;
   &:disabled {
     background-color: lighten($medium-red-color, 20%);
@@ -66,4 +64,21 @@ footer {
 
 span {
   font-weight: bold;
+}
+
+.LoginButton {
+  @include button;
+  background-color: $medium-green-color;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.SignedOut {
+  background-color: $dark-gray-color;
+  padding: 14px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
 }
