@@ -11,6 +11,9 @@
   font-size: 20px;
   outline: none;
   padding: 6px 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @mixin button-container {
