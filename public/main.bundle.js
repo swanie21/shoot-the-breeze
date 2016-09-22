@@ -8199,7 +8199,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(496);
+	__webpack_require__(497);
 	
 	(0, _reactDom.render)(_react2.default.createElement(_Application2.default, null), document.getElementById('application'));
 
@@ -29418,11 +29418,11 @@
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _UserList = __webpack_require__(493);
+	var _UserList = __webpack_require__(494);
 	
 	var _UserList2 = _interopRequireDefault(_UserList);
 	
-	var _MessageArea = __webpack_require__(495);
+	var _MessageArea = __webpack_require__(496);
 	
 	var _MessageArea2 = _interopRequireDefault(_MessageArea);
 	
@@ -29452,6 +29452,7 @@
 	    _this.addNewMessage = _this.addNewMessage.bind(_this);
 	    _this.sortUpButton = _this.sortUpButton.bind(_this);
 	    _this.sortDownButton = _this.sortDownButton.bind(_this);
+	    _this.handleIndividualUser = _this.handleIndividualUser.bind(_this);
 	    return _this;
 	  }
 	
@@ -29501,38 +29502,53 @@
 	    }
 	  }, {
 	    key: 'updateFilter',
-	    value: function updateFilter(event) {
-	      this.setState({ filterText: event.target.value });
+	    value: function updateFilter(e) {
+	      this.setState({ filterText: e.target.value });
+	    }
+	  }, {
+	    key: 'handleIndividualUser',
+	    value: function handleIndividualUser(name) {
+	      if (name !== this.state.filterText) {
+	        this.setState({ filterText: name });
+	      } else {
+	        this.setState({ filterText: '' });
+	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
 	      var _state = this.state;
 	      var user = _state.user;
 	      var messages = _state.messages;
 	      var draftMessage = _state.draftMessage;
+	      var filterText = _state.filterText;
 	
 	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Application' },
 	        _react2.default.createElement(_NavBar2.default, {
-	          messages: this.state.messages,
-	          filterText: this.state.filterText,
+	          messages: messages,
+	          filterText: filterText,
 	          reference: _firebase.reference,
 	          sortUpButton: this.sortUpButton,
 	          sortDownButton: this.sortDownButton,
 	          updateFilter: this.updateFilter
 	        }),
 	        _react2.default.createElement(_MessageArea2.default, {
-	          messages: this.state.messages,
-	          filterText: this.state.filterText,
+	          messages: messages,
+	          filterText: filterText,
 	          reference: _firebase.reference
 	        }),
 	        _react2.default.createElement(_UserList2.default, {
 	          user: user,
-	          messages: this.state.messages,
-	          reference: _firebase.reference
+	          messages: messages,
+	          reference: _firebase.reference,
+	          handleIndividualUser: function handleIndividualUser(name) {
+	            return _this3.handleIndividualUser(name);
+	          }
 	        }),
 	        _react2.default.createElement(_Footer2.default, {
 	          addNewMessage: this.addNewMessage,
@@ -47120,6 +47136,11 @@
 	          ),
 	          _react2.default.createElement(
 	            'p',
+	            { className: 'MobileMessageDate' },
+	            (0, _moment2.default)(message.createdAt).format('M/D, h:mm a')
+	          ),
+	          _react2.default.createElement(
+	            'p',
 	            { className: 'MessageUserName' },
 	            message.user.displayName
 	          )
@@ -51472,10 +51493,6 @@
 	
 	var _Message2 = _interopRequireDefault(_Message);
 	
-	var _lodash = __webpack_require__(476);
-	
-	var _lodash2 = _interopRequireDefault(_lodash);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52878,6 +52895,10 @@
 	
 	var _firebase2 = _interopRequireDefault(_firebase);
 	
+	var _LoginButton = __webpack_require__(493);
+	
+	var _LoginButton2 = _interopRequireDefault(_LoginButton);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var SignIn = function SignIn(props) {
@@ -52903,9 +52924,39 @@
 	  if (user === null) return _react2.default.createElement(
 	    'section',
 	    { className: 'SignedOut' },
+	    _react2.default.createElement(_LoginButton2.default, null)
+	  );
+	};
+	
+	exports.default = SignIn;
+
+/***/ },
+/* 493 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _firebase = __webpack_require__(470);
+	
+	var _firebase2 = _interopRequireDefault(_firebase);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LoginButton = function LoginButton(props) {
+	  return _react2.default.createElement(
+	    'section',
+	    null,
 	    _react2.default.createElement('input', {
-	      className: 'LoginButton',
 	      type: 'button',
+	      className: 'LoginButton',
 	      onClick: function onClick() {
 	        return (0, _firebase.signIn)();
 	      },
@@ -52914,10 +52965,10 @@
 	  );
 	};
 	
-	exports.default = SignIn;
+	exports.default = LoginButton;
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52936,7 +52987,7 @@
 	
 	var _firebase2 = _interopRequireDefault(_firebase);
 	
-	var _User = __webpack_require__(494);
+	var _User = __webpack_require__(495);
 	
 	var _User2 = _interopRequireDefault(_User);
 	
@@ -52945,8 +52996,6 @@
 	var _Message2 = _interopRequireDefault(_Message);
 	
 	var _lodash = __webpack_require__(476);
-	
-	var _lodash2 = _interopRequireDefault(_lodash);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -52970,16 +53019,21 @@
 	    value: function renderUsers() {
 	      var _this2 = this;
 	
-	      var uniqUsers = _.uniqBy(this.props.messages, function (e) {
+	      var sortUsers = _.sortBy(_.uniqBy(this.props.messages, function (e) {
 	        return e.user.displayName;
-	      });
-	      return uniqUsers.map(function (message) {
+	      }), [function (e) {
+	        return e.user.displayName;
+	      }]);
+	      return sortUsers.map(function (message) {
 	        return _react2.default.createElement(
 	          'section',
 	          { key: message.key },
 	          _react2.default.createElement(_User2.default, {
 	            message: message,
-	            user: _this2.props.user
+	            user: _this2.props.user,
+	            handleIndividualUser: function handleIndividualUser(name) {
+	              return _this2.props.handleIndividualUser(name);
+	            }
 	          })
 	        );
 	      });
@@ -53006,7 +53060,7 @@
 	exports.default = UserList;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53028,13 +53082,19 @@
 	var User = function User(props) {
 	  var user = props.user;
 	  var message = props.message;
+	  var handleIndividualUser = props.handleIndividualUser;
 	
 	  if (user !== null) return _react2.default.createElement(
 	    'section',
 	    { className: 'UserListDisplay' },
 	    _react2.default.createElement(
 	      'p',
-	      { className: 'UserListName' },
+	      {
+	        className: 'UserListName',
+	        onClick: function onClick() {
+	          return handleIndividualUser(message.user.displayName);
+	        }
+	      },
 	      message.user.displayName
 	    ),
 	    _react2.default.createElement(
@@ -53051,7 +53111,7 @@
 	exports.default = User;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53097,7 +53157,7 @@
 	      var _this2 = this;
 	
 	      var filteredMessages = this.props.messages.filter(function (message) {
-	        return message.content.toLowerCase().indexOf(_this2.props.filterText) !== -1 || message.user.displayName.toLowerCase().indexOf(_this2.props.filterText) !== -1 || message.user.email.toLowerCase().indexOf(_this2.props.filterText) !== -1;
+	        return message.content.toLowerCase().indexOf(_this2.props.filterText.toLowerCase()) !== -1 || message.user.displayName.toLowerCase().indexOf(_this2.props.filterText.toLowerCase()) !== -1 || message.user.email.toLowerCase().indexOf(_this2.props.filterText.toLowerCase()) !== -1;
 	      });
 	
 	      return filteredMessages.map(function (message) {
@@ -53127,16 +53187,16 @@
 	exports.default = MessageArea;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(497);
+	var content = __webpack_require__(498);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(499)(content, {});
+	var update = __webpack_require__(500)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -53153,21 +53213,21 @@
 	}
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(498)();
+	exports = module.exports = __webpack_require__(499)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Fira Sans', sans-serif; }\n\nhtml, body {\n  margin: 0;\n  padding: 0; }\n\n.Application {\n  position: relative; }\n\nh1 {\n  color: #fff;\n  margin-left: 20px; }\n\ninput[type='text']::-webkit-input-placeholder {\n  color: #2c3e50;\n  background-color: #ecf0f1; }\n\nnav {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  background-color: #2c3e50;\n  width: 100%; }\n\n.SortUpButton, .SortDownButton {\n  border: none;\n  border-radius: 3px;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background: #3498db;\n  color: #fff;\n  width: 100px; }\n\n.SortUpButton {\n  margin-right: 20px; }\n\n.SortButtons {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  padding: 0 10px 0 10px;\n  width: 25%;\n  margin-left: 165px; }\n\n.FilterInput {\n  background-color: #ecf0f1;\n  border: none;\n  border-radius: 3px;\n  outline: none;\n  padding: 6px 0;\n  font-size: 20px;\n  text-indent: 15px;\n  width: 100%; }\n  .FilterInput:focus {\n    outline: none; }\n\n.Filter {\n  margin-left: 20px;\n  width: 40%; }\n\nfooter {\n  background-color: #2c3e50;\n  bottom: 0px;\n  left: 0px;\n  position: fixed;\n  width: 100%; }\n\n.MessageInput {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  margin-left: 10px;\n  height: 100%; }\n\n.InputField {\n  background-color: #ecf0f1;\n  border: none;\n  border-radius: 3px;\n  outline: none;\n  padding: 6px 0;\n  font-size: 20px;\n  text-indent: 15px;\n  width: 65%; }\n  .InputField:focus {\n    outline: none; }\n\n.SubmitButton {\n  border: none;\n  border-radius: 3px;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background-color: #2ecc71;\n  color: #fff;\n  margin-right: 20px;\n  width: 100px; }\n  .SubmitButton:disabled {\n    background-color: #7ee2a8; }\n\n.ClearButton {\n  border: none;\n  border-radius: 3px;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background-color: #e74c3c;\n  color: #fff;\n  width: 100px; }\n  .ClearButton:disabled {\n    background-color: #f29f97; }\n\n.CharacterCounter {\n  color: #fff;\n  font-size: 20px;\n  margin-left: 20px;\n  margin-right: 20px;\n  width: 20%; }\n\n.ButtonContainer {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  padding: 0 10px 0 10px;\n  width: 25%; }\n\n.UserLoggedIn {\n  background-color: #95a5a6;\n  color: #fff;\n  font-size: 20px;\n  padding: 10px 0;\n  text-indent: 10px; }\n\n.UserLoggedIn p {\n  margin: 0; }\n\nspan {\n  font-weight: bold; }\n\n.MessageDate {\n  color: #9b59b6;\n  font-size: 20px;\n  margin: 0;\n  margin: 15px 0 0 20px; }\n\n.MessageContent {\n  color: #2c3e50;\n  font-size: 20px;\n  margin: 0;\n  margin-left: 20px; }\n\n.MessageUserName {\n  color: #2980b9;\n  font-size: 20px;\n  font-weight: bold;\n  margin: 0;\n  margin-left: 10px;\n  margin-top: 10px; }\n\n.Message {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  width: 70%; }\n\naside {\n  background-color: #ecf0f1;\n  height: 100vh;\n  position: absolute;\n  padding: 90px 15px 15px 15px;\n  right: 0;\n  top: 0;\n  width: 30%;\n  z-index: -1; }\n\nh2 {\n  color: #2c3e50;\n  font-weight: bold;\n  margin: 0; }\n\n.UserListDisplay {\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: row; }\n\n.UserListEmail {\n  color: #2c3e50;\n  font-size: 20px;\n  padding: 0;\n  margin-left: 5px; }\n\n.UserListName {\n  color: #2c3e50;\n  font-size: 20px;\n  padding: 0; }\n", ""]);
+	exports.push([module.id, "* {\n  font-family: \"Fira Sans\", sans-serif; }\n\nhtml, body {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  width: 100%; }\n\nh1 {\n  color: #fff;\n  margin-left: 20px; }\n\ninput[type='text']::-webkit-input-placeholder {\n  color: #2c3e50;\n  background-color: #ecf0f1; }\n\n@media screen and (max-width: 1120px) {\n  h1 {\n    display: none; }\n  nav {\n    height: 80px; } }\n\nnav {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  background-color: #2c3e50;\n  height: 80px;\n  overflow: hidden;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1; }\n\n.SortUpButton, .SortDownButton {\n  border: none;\n  border-radius: 3px;\n  color: #fff;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background: #3498db;\n  color: #fff;\n  width: 100px; }\n  .SortUpButton:hover, .SortDownButton:hover {\n    cursor: pointer; }\n\n.SortUpButton {\n  margin-right: 20px; }\n\n.SortButtons {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  padding: 0 10px 0 10px;\n  width: 38%; }\n\n.FilterInput {\n  background-color: #ecf0f1;\n  border: none;\n  border-radius: 3px;\n  outline: none;\n  padding: 6px 0;\n  font-size: 20px;\n  text-indent: 15px;\n  width: 100%; }\n  .FilterInput:focus {\n    outline: none; }\n\n.Filter {\n  margin-left: 20px;\n  width: 40%; }\n\n@media screen and (max-width: 1120px) {\n  .Filter {\n    margin-left: 10px;\n    width: 65%; } }\n\n@media screen and (max-width: 600px) {\n  nav {\n    flex-direction: column;\n    height: 120px; }\n  .Filter {\n    margin: 10px 0;\n    width: 60%; }\n  .SortButtons {\n    justify-content: center; }\n  .SortUpButton {\n    margin-right: 10px; } }\n\nfooter {\n  background-color: #2c3e50;\n  bottom: 0;\n  position: fixed;\n  width: 100%; }\n\n.MessageInput {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  height: 100%;\n  margin-left: 10px; }\n\n.InputField {\n  background-color: #ecf0f1;\n  border: none;\n  border-radius: 3px;\n  outline: none;\n  padding: 6px 0;\n  font-size: 20px;\n  text-indent: 15px;\n  width: 65%; }\n  .InputField:focus {\n    outline: none; }\n\n.SubmitButton {\n  border: none;\n  border-radius: 3px;\n  color: #fff;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background-color: #2ecc71;\n  margin-right: 20px;\n  width: 100px; }\n  .SubmitButton:hover {\n    cursor: pointer; }\n  .SubmitButton:disabled {\n    background-color: #7ee2a8; }\n\n.ClearButton {\n  border: none;\n  border-radius: 3px;\n  color: #fff;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background-color: #e74c3c;\n  width: 100px; }\n  .ClearButton:hover {\n    cursor: pointer; }\n  .ClearButton:disabled {\n    background-color: #f29f97; }\n\n.CharacterCounter {\n  color: #fff;\n  font-size: 20px;\n  margin-left: 20px;\n  margin-right: 20px;\n  width: 20%; }\n\n.ButtonContainer {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  padding: 0 10px 0 10px;\n  width: 25%; }\n\n.UserLoggedIn {\n  background-color: #95a5a6;\n  color: #fff;\n  font-size: 20px;\n  padding: 10px 0;\n  text-indent: 10px; }\n\n.UserLoggedIn p {\n  margin: 0; }\n\nspan {\n  font-weight: bold; }\n\n.LoginButton {\n  border: none;\n  border-radius: 3px;\n  color: #fff;\n  font-size: 20px;\n  outline: none;\n  padding: 6px 0;\n  background-color: #2ecc71;\n  margin-left: 10px;\n  width: 100px; }\n  .LoginButton:hover {\n    cursor: pointer; }\n\n.SignedOut {\n  background-color: #95a5a6;\n  padding: 14px 0;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1; }\n\n@media screen and (max-width: 800px) {\n  .ButtonContainer {\n    margin-left: 50px; }\n  .InputField {\n    width: 60%; } }\n\n@media screen and (max-width: 600px) {\n  .MessageInput {\n    flex-direction: column;\n    margin-top: 10px; }\n  .ButtonContainer {\n    justify-content: center;\n    margin-bottom: 10px;\n    margin-right: 40px; }\n  .InputField {\n    width: 60%; }\n  .UserLoggedIn {\n    display: none; } }\n\n.MessageDate {\n  color: #9b59b6;\n  font-size: 20px;\n  margin: 0;\n  margin: 15px 0 0 20px; }\n\n.MobileMessageDate {\n  display: none; }\n\n.MessageArea {\n  height: 100vh;\n  overflow: auto;\n  padding: 80px 0 100px 0; }\n\n.MessageContent {\n  color: #2c3e50;\n  font-size: 20px;\n  margin: 0;\n  margin-left: 20px; }\n\n.MessageUserName {\n  color: #2980b9;\n  font-size: 20px;\n  font-weight: bold;\n  margin: 0;\n  margin-left: 10px;\n  margin-top: 10px; }\n\n.Message {\n  align-items: center;\n  display: flex;\n  flex-direction: row;\n  width: 70%; }\n\n@media screen and (max-width: 600px) {\n  .MessageArea {\n    padding: 120px 0 100px 0; }\n  .Message {\n    width: 100%; }\n  .MessageDate {\n    display: none; }\n  .MobileMessageDate {\n    color: #9b59b6;\n    font-size: 20px;\n    margin: 0;\n    margin: 15px 0 0 20px;\n    display: block; } }\n\naside {\n  background-color: #ecf0f1;\n  height: 100vh;\n  position: absolute;\n  padding: 90px 15px 15px 15px;\n  right: 0;\n  top: 0;\n  width: 30%; }\n\nh2 {\n  color: #2c3e50;\n  font-weight: bold;\n  margin: 0; }\n\n.selected {\n  color: red; }\n\n.UserListDisplay {\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: row; }\n\n.UserListEmail {\n  color: #2c3e50;\n  font-size: 20px;\n  margin: 0;\n  padding: 10px 0;\n  margin-left: 5px; }\n\n.UserListName {\n  color: #2c3e50;\n  font-size: 20px;\n  margin: 0;\n  padding: 10px 0; }\n\n@media screen and (max-width: 900px) {\n  aside {\n    display: none; } }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports) {
 
 	/*
@@ -53223,7 +53283,7 @@
 
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

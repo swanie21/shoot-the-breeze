@@ -30,7 +30,8 @@
   outline: none;
   padding: 6px 0;
   &:focus {
-    outline: none;
+    background-color: darken($light-gray-color, 20%);
+    // outline: none;
   }
 }
 

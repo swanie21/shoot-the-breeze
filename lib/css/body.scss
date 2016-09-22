@@ -14,9 +14,15 @@ h1 {
   margin-left: 20px;
 }
 
+input[type='text'] {
+  background-color: $light-gray-color;
+  &:focus {
+    background-color: lighten($dark-gray-color, 20%);
+  }
+}
+
 input[type='text']::-webkit-input-placeholder {
   color: $dark-blue-color;
-  background-color: $light-gray-color;
 }
 
 @media screen and (max-width: 1120px) {
