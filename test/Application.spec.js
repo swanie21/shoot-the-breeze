@@ -1,9 +1,8 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect, assert } from 'chai';
 import Application from '../lib/components/Application';
 import Message from '../lib/components/Message';
-
 
 describe('application', () => {
   it('renders as a <div>', () => {
