@@ -15,6 +15,14 @@ describe('clear button component',function() {
     expect(wrapper.find('.ClearButton')).to.have.length(1);
   });
 
+  it('should have draftMessage prop', function() {
+    expect(wrapper.props().draftMessage).to.be.defined;
+ });
+
+ it('should have clearMessage prop', function() {
+   expect(wrapper.props().clearMessage).to.be.defined;
+});
+
   it('should have attributes for className, onclick, and disabled', function() {
     expect(wrapper.props('className')).to.be.defined;
     expect(wrapper.props('onClick')).to.be.defined;

@@ -19,6 +19,14 @@ describe('message input component',function() {
     assert.lengthOf(wrapper.find('.ButtonContainer'), 1);
   });
 
+  it('should have user prop', function() {
+    expect(wrapper.props().user).to.be.defined;
+ });
+
+ it('should have addNewMessage prop', function() {
+   expect(wrapper.props().addNewMessage).to.be.defined;
+});
+
 });
 
 describe('render',function() {
