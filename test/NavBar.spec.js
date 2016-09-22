@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 import { expect, assert } from 'chai';
 import NavBar from '../lib/components/NavBar';
 
-describe('message input component',function() {
+describe('NavBar component',function() {
 
   const wrapper = shallow(<NavBar />);
 
@@ -14,6 +14,10 @@ describe('message input component',function() {
   it('should have a sort buttons container', function() {
     expect(wrapper.find('.SortButtons')).to.have.length(1);
   });
+
+  it('should have messages prop', function() {
+    expect(wrapper.props().messages).to.be.defined;
+ });
 
 });
 
