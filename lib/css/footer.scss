@@ -48,6 +48,7 @@ footer {
 
 .ButtonContainer {
   @include button-container;
+  width: 25%;
 }
 
 .UserLoggedIn {
@@ -81,4 +82,14 @@ span {
   left: 0;
   z-index: 1;
   width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .MessageInput {
+    flex-direction: column;
+  }
+
+  .UserLoggedIn {
+    display: none;
+  }
 }

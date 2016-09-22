@@ -18,7 +18,8 @@ nav {
 
 .SortButtons {
   @include button-container
-  margin-left: 165px;
+  width: 38%;
+  // margin-left: 160px;
 }
 
 .FilterInput {
@@ -31,4 +32,10 @@ nav {
 .Filter {
   margin-left: 20px;
   width: 40%;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
 }

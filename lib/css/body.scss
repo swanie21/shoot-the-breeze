@@ -20,3 +20,13 @@ input[type='text']::-webkit-input-placeholder {
   color: $dark-blue-color;
   background-color: $light-gray-color;
 }
+
+@media screen and (max-width: 1120px) {
+  h1 {
+    display: none;
+  }
+
+  nav {
+    height: 80px;
+  }
+}

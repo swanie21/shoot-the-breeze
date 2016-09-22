@@ -6,7 +6,7 @@ aside {
   right: 0;
   top: 0;
   width: 30%;
-  // z-index: -1;
+  z-index: -1;
 }
 
 h2 {
@@ -32,4 +32,10 @@ h2 {
   color: $dark-blue-color;
   font-size: 20px;
   padding: 0;
+}
+
+@media screen and (max-width: 900px) {
+  aside {
+    display: none;
+  }
 }
