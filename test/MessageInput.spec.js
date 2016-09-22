@@ -16,9 +16,8 @@ describe('message input component',function() {
   });
 
   it('should have a button container', function() {
-    expect(wrapper.find('.ButtonContainer')).to.have.length(1);
+    assert.lengthOf(wrapper.find('.ButtonContainer'), 1);
   });
-
 
 });
 
@@ -38,7 +37,7 @@ describe('render',function() {
        assert.lengthOf(wrapper.find('ClearButton'), 1);
    });
 
-   it('should have attributes for className, onclick, and disabled', function() {
+   it('should have attributes for className, onclick, value, placeholder, onChange, draftMessage, clearMessage, and handleNewMessage', function() {
      expect(wrapper.props('className')).to.be.defined;
      expect(wrapper.props('onClick')).to.be.defined;
      expect(wrapper.props('value')).to.be.defined;
