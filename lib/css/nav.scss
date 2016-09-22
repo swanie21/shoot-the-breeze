@@ -1,8 +1,12 @@
 nav {
   @include flexbox-center-row;
   background-color: $dark-blue-color;
-  // position://// fixed;
+  height: 80px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .SortUpButton, .SortDownButton {
@@ -18,7 +22,7 @@ nav {
 
 .SortButtons {
   @include button-container
-  margin-left: 165px;
+  width: 38%;
 }
 
 .FilterInput {
@@ -31,4 +35,31 @@ nav {
 .Filter {
   margin-left: 20px;
   width: 40%;
+}
+
+@media screen and (max-width: 1120px) {
+  .Filter {
+    margin-left: 10px;
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: 120px;
+  }
+
+  .Filter {
+    margin: 10px 0;
+    width: 60%;
+  }
+
+  .SortButtons {
+    justify-content: center;
+  }
+
+  .SortUpButton {
+    margin-right: 10px;
+  }
 }

@@ -3,12 +3,10 @@
 }
 
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-}
-
-.Application {
-  position: relative;
+  width: 100%;
 }
 
 h1 {
@@ -19,4 +17,14 @@ h1 {
 input[type='text']::-webkit-input-placeholder {
   color: $dark-blue-color;
   background-color: $light-gray-color;
+}
+
+@media screen and (max-width: 1120px) {
+  h1 {
+    display: none;
+  }
+
+  nav {
+    height: 80px;
+  }
 }

@@ -1,8 +1,15 @@
 .MessageDate {
-  color: $purple-text;
-  font-size: 20px;
-  margin: 0;
-  margin: 15px 0 0 20px;
+  @include date-of-message;
+}
+
+.MobileMessageDate {
+  display: none;
+}
+
+.MessageArea {
+  height: 100vh;
+  overflow: auto;
+  padding: 80px 0 100px 0;
 }
 
 .MessageContent {
@@ -24,4 +31,23 @@
 .Message {
   @include flexbox-center-row;
   width: 70%;
+}
+
+@media screen and (max-width: 600px) {
+  .MessageArea {
+    padding: 120px 0 100px 0;
+  }
+
+  .Message {
+    width: 100%;
+  }
+
+  .MessageDate {
+    display: none;
+  }
+
+  .MobileMessageDate {
+    @include date-of-message;
+    display: block;
+  }
 }

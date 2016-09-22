@@ -1,15 +1,14 @@
 footer {
   background-color: $dark-blue-color;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
   position: fixed;
   width: 100%;
 }
 
 .MessageInput {
   @include flexbox-center-row;
-  margin-left: 10px;
   height: 100%;
+  margin-left: 10px;
 }
 
 .InputField {
@@ -48,6 +47,7 @@ footer {
 
 .ButtonContainer {
   @include button-container;
+  width: 25%;
 }
 
 .UserLoggedIn {
@@ -79,6 +79,37 @@ span {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 1;
   width: 100%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .ButtonContainer {
+    margin-left: 50px;
+  }
+
+  .InputField {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .MessageInput {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .ButtonContainer {
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 40px;
+  }
+
+  .InputField {
+    width: 60%;
+  }
+
+  .UserLoggedIn {
+    display: none;
+  }
 }

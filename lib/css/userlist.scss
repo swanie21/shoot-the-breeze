@@ -1,12 +1,11 @@
 aside {
   background-color: $light-gray-color;
   height: 100vh;
-  position: absolute;
+  position: absolute;;
   padding: 90px 15px 15px 15px;
   right: 0;
   top: 0;
   width: 30%;
-  // z-index: -1;
 }
 
 h2 {
@@ -26,14 +25,16 @@ h2 {
 }
 
 .UserListEmail {
-  color: $dark-blue-color;
-  font-size: 20px;
-  padding: 0;
+  @include user-info;
   margin-left: 5px;
 }
 
 .UserListName {
-  color: $dark-blue-color;
-  font-size: 20px;
-  padding: 0;
+  @include user-info;
+}
+
+@media screen and (max-width: 900px) {
+  aside {
+    display: none;
+  }
 }

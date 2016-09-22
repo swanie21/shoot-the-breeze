@@ -21,7 +21,6 @@
   flex-direction: row;
   justify-content: flex-end;
   padding: 0 10px 0 10px;
-  width: 25%;
 }
 
 @mixin input-field {
@@ -33,4 +32,18 @@
   &:focus {
     outline: none;
   }
+}
+
+@mixin date-of-message {
+  color: $purple-text;
+  font-size: 20px;
+  margin: 0;
+  margin: 15px 0 0 20px;
+}
+
+@mixin user-info {
+  color: $dark-blue-color;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px 0;
 }
