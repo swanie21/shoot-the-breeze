@@ -1,12 +1,5 @@
 # Shoot The Breeze
 
-([Project Specification](http://frontend.turing.io/projects/shoot-the-breeze))
+<img src="img/shoot-the-breeze.png" alt="chat app project picture" height="400px" width="700px">
 
-Setup setups:
-
-- Clone this repository.
-- `npm install`
-- Set up a new Firebase application.
-- Replace the keys in `./lib/firebase.js`.
-- Turn on Google authentication in the Firebase specification.
-- `npm start` or `npm test`.
+A chat application made with React and Firebase. The user can store their messages in Firebase. Enzyme testing was utilized to test components. 
